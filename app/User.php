@@ -26,8 +26,13 @@ class User extends Authenticatable
     ];
 
 
-    // Define Database Tables Relationship
+    // Define Database Tables Relationship with class "Role"
     public function role(){
         return $this->belongsTo('App\Role');
+    }
+
+    // Relationship with class "Photo"
+    public function photo(){
+        return $this->belongsTo('App\Photo');
     }
 }
