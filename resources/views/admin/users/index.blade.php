@@ -8,6 +8,7 @@
 		    <thead>
 		      <tr>
 		        <th>Id</th>
+		        <th>Photo</th>
 		        <th>Name</th>
 		        <th>E-mail</th>
 		        <th>Role</th>
@@ -22,12 +23,19 @@
 				@foreach( $users as $user )
 			      <tr>
 			        <td>{{ $user->id }}</td>
-			        <td>{{ $user->name }}</td>
+			        <td>
+			        	@if( $user->photo )
+			        		<img height="77" width="77" src="{{ $user->photo->file }}">
+						@else
+							<img src="http://placehold.it/77x77">
+						@endif
+			        </td>
+			        <td><a href="{{ route('admin.users.edit', $user->id) }}">{{ $user->name }}</a></td>
 			        <td>{{ $user->email }}</td>
 			        <td>{{ $user->role->name }}</td>
 					<td>{{ $user->is_active == 1 ? 'Active' : 'No Active' }}</td>
 			        <td>{{ $user->created_at->diffForHumans() }}</td>
-			        <td>{{ $user->updated_at }}</td>
+			        <td>{{ $user->updated_at->diffForHumans() }}</td>
 			      </tr>
 				@endforeach
 		     @endif
