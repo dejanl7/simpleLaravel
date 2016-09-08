@@ -22,9 +22,20 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/admin', function() {
-    return view('admin.index');
+
+
+Route::group(['middleware' => 'admin'], function() {
+	// Route to the admin section
+		Route::get('/admin', function() {
+	  		return view('admin.index');
+		});
+
+	// Admin CRUD Operations with Users
+    	Route::resource('admin/users', 'AdminUsersControler');
+
+
+    // Posts CRUD
+    	Route::resource('admin/posts', 'AdminPostsController');
 });
 
 
-Route::resource('admin/users', 'AdminUsersControler');

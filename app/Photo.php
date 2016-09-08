@@ -14,9 +14,12 @@ class Photo extends Model
     	'file'
     ];
 
-
     // Creating Accessor 
     public function getFileAttribute($photo){
     	return $this->uploads . $photo;
     }
+
+    
+
+
 }

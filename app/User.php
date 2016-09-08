@@ -31,8 +31,36 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
+
     // Relationship with class "Photo"
     public function photo(){
         return $this->belongsTo('App\Photo');
     }
+
+
+    // Muttator for crypt password before Insert
+    public function  setPasswordAttribute($password){
+        if( !empty($password) ){
+            $this->attributes['password'] = bcrypt($password);
+        }
+    }
+
+
+    // Check if User has role "Admin". Than allow aproach to admin panel.
+    public function isAdmin(){
+        if( $this->role->name == 'Author' || $this->role->name == 'Administrator' && $this->is_active == 1 ){
+            return true;
+        }
+            else{
+                return false;
+            }
+    }
+
+
+    // Set Many to Many Relationship 
+    public function posts(){
+        return $this->hasMany('App\Post');
+    }
+
+
 }
