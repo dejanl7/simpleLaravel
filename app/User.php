@@ -39,7 +39,7 @@ class User extends Authenticatable
 
 
     // Muttator for crypt password before Insert
-    public function  setPasswordAttribute($password){
+    public function setPasswordAttribute($password){
         if( !empty($password) ){
             $this->attributes['password'] = bcrypt($password);
         }

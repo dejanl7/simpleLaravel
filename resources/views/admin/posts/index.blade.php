@@ -12,7 +12,6 @@
 		     	<th>Photo</th>
 		        <th>User</th>
 		        <th>Category</th>
-		        <th>Post</th>
 		        <th>Post Title</th>
 		        <th>Post Body</th>
 		        <th>Created</th>
@@ -28,8 +27,7 @@
 			        	<img height="77" width="127" src="{{ $post->photo ? $post->photo->file : 'http://placehold.it/77x77' }}">
 			        </td>
 			       	<td>{{ $post->user->name }}</td>
-			        <td>{{ $post->category_id }}</td>
-			        <td>{{ $post->title }}</td>
+			        <td>{{ $post->category ? $post->category->name : 'Uncategorized' }}</td>
 			        <td>{{ $post->title }}</td>
 			        <td>{{ $post->body }}</td>
 			        <td>{{ $post->created_at->diffForhumans() }}</td>
