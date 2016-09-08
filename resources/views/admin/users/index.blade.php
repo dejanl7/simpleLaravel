@@ -6,7 +6,7 @@
 	@endif
 	<h1>Users</h1>
 	
-	<table class="table-responsive">
+	<div class="table-responsive">
 		<table class="table table-striped">
 		    <thead>
 		      <tr>
@@ -45,6 +45,6 @@
 
 		    </tbody>
 		 </table>
-	</table>
+	</div>
 
 @stop

@@ -2,7 +2,8 @@
 
 use App\User;
 use App\Role;
-
+use App\Post;
+use App\Category;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -31,11 +32,14 @@ Route::group(['middleware' => 'admin'], function() {
 		});
 
 	// Admin CRUD Operations with Users
-    	Route::resource('admin/users', 'AdminUsersControler');
-
+    	Route::resource('admin/users', 'AdminUsersController');
 
     // Posts CRUD
     	Route::resource('admin/posts', 'AdminPostsController');
+
+    // Categories CRUD
+    	Route::resource('admin/categories', 'AdminCategoriesController');
+
 });
 
 

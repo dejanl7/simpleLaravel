@@ -15,7 +15,7 @@ use App\Photo;
 
 
 
-class AdminUsersControler extends Controller
+class AdminUsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -63,9 +63,12 @@ class AdminUsersControler extends Controller
             $input['photo_id'] = $photo->id;
         }
 
+        $input['password'] = bcrypt($input['password']);
         User::create($input);
         
         return redirect('/admin/users');
+
+
   
     }
 
@@ -135,7 +138,12 @@ class AdminUsersControler extends Controller
     public function destroy(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        unlink( public_path(). $user->photo->file );
+        
+        if( isset($user->photo->file) ){
+            unlink( public_path(). $user->photo->file );
+        } 
+        
+
         $user->delete();
 
         $request->session()->flash('deleted_user', 'The user has been deleted');

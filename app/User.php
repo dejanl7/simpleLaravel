@@ -39,16 +39,16 @@ class User extends Authenticatable
 
 
     // Muttator for crypt password before Insert
-    public function setPasswordAttribute($password){
+    /*public function setPasswordAttribute($password){
         if( !empty($password) ){
             $this->attributes['password'] = bcrypt($password);
         }
-    }
+    }*/
 
 
-    // Check if User has role "Admin". Than allow aproach to admin panel.
+    // Check if User has role "Administrator" or "Author". Than allow aproach to admin panel.
     public function isAdmin(){
-        if( $this->role->name == 'Author' || $this->role->name == 'Administrator' && $this->is_active == 1 ){
+        if( $this->role->name == 'Author' || $this->role->name == 'Administrator' ){
             return true;
         }
             else{
