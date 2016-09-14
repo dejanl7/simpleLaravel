@@ -80,7 +80,9 @@ class ComposerStaticInit13f6b4b01aef9939e058413f5601550a
         ),
         'C' => 
         array (
+            'Cviebrock\\EloquentSluggable\\' => 28,
             'Collective\\Html\\' => 16,
+            'Cocur\\Slugify\\' => 14,
             'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
         ),
@@ -205,9 +207,17 @@ class ComposerStaticInit13f6b4b01aef9939e058413f5601550a
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
+        'Cviebrock\\EloquentSluggable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src',
+        ),
         'Collective\\Html\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
+        'Cocur\\Slugify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cocur/slugify/src',
         ),
         'ClassPreloader\\' => 
         array (
@@ -270,8 +280,13 @@ class ComposerStaticInit13f6b4b01aef9939e058413f5601550a
     );
 
     public static $classMap = array (
+        'AddPhotoColumnToCommentReplies' => __DIR__ . '/../..' . '/database/migrations/2016_09_12_134928_add_photo_column_to_commentReplies.php',
+        'AddPhotoColumnToComments' => __DIR__ . '/../..' . '/database/migrations/2016_09_12_105400_add_photo_column_to_comments.php',
         'AddPhotoIdToUsers' => __DIR__ . '/../..' . '/database/migrations/2016_09_05_221505_add_photo_id_to_users.php',
+        'AddSlugToPosts' => __DIR__ . '/../..' . '/database/migrations/2016_09_13_224428_addSlugToPosts.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_08_094658_create_categories_table.php',
+        'CreateCommentRepliesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_09_130323_create_comment_replies_table.php',
+        'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_09_130216_create_comments_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePhotosTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_05_223822_create_photos_table.php',
         'CreatePostsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_07_155428_create_posts_table.php',

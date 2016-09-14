@@ -46,4 +46,8 @@
 		</div><!-- .col-sm-6 -->
 	
 	</div><!-- .row -->
+
+	<div class="row">
+		@include('includes.form_error')
+	</div>
 @stop

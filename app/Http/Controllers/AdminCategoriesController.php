@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Http\Requests\CategoriesCreateRequest;
+
 use App\Category;
 
 class AdminCategoriesController extends Controller
@@ -32,9 +33,15 @@ class AdminCategoriesController extends Controller
     /*===========================
         Store
     =============================*/
-    public function store(Request $request)
+    public function store(CategoriesCreateRequest $request)
     {
-        Category::create( $request->all() );
+        if( empty($request->name) ){
+            echo "konj";
+        }
+        else {
+            Category::create( $request->all() );
+        }
+        
 
         return redirect('/admin/categories'); 
     }

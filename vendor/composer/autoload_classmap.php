@@ -6,8 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddPhotoColumnToCommentReplies' => $baseDir . '/database/migrations/2016_09_12_134928_add_photo_column_to_commentReplies.php',
+    'AddPhotoColumnToComments' => $baseDir . '/database/migrations/2016_09_12_105400_add_photo_column_to_comments.php',
     'AddPhotoIdToUsers' => $baseDir . '/database/migrations/2016_09_05_221505_add_photo_id_to_users.php',
+    'AddSlugToPosts' => $baseDir . '/database/migrations/2016_09_13_224428_addSlugToPosts.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2016_09_08_094658_create_categories_table.php',
+    'CreateCommentRepliesTable' => $baseDir . '/database/migrations/2016_09_09_130323_create_comment_replies_table.php',
+    'CreateCommentsTable' => $baseDir . '/database/migrations/2016_09_09_130216_create_comments_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePhotosTable' => $baseDir . '/database/migrations/2016_09_05_223822_create_photos_table.php',
     'CreatePostsTable' => $baseDir . '/database/migrations/2016_09_07_155428_create_posts_table.php',

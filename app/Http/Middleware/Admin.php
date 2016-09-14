@@ -20,10 +20,9 @@ class Admin
             if( Auth::user()->isAdmin() ){
                 return $next($request);           
             }
-            else {
-                return redirect('/');
-            }
         }
+
+        return redirect('home');
 
     }
 }

@@ -13,7 +13,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role_id', 'is_active', 'photo_id'
+        'name', 
+        'email', 
+        'password', 
+        'role_id', 
+        'is_active', 
+        'photo_id'
     ];
 
     /**
@@ -62,5 +67,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
-
+    // Gravatar
+    public function getGravatarAttribute(){
+        $hash = md5( strtolower(trim($this->attributes['email'])) . "?d=mm");
+        return "http://www.gravatar.com/avatar/".$hash;
+    }
 }
