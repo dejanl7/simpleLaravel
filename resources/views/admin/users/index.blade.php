@@ -4,7 +4,8 @@
 	@if( Session::has('deleted_user') )
 		<p class="bg-danger">{{ session('deleted_user') }}</p>
 	@endif
-	<h1>Users</h1>
+
+	<h1 class="text-center">Users</h1>
 	
 	<div class="table-responsive">
 		<table class="table table-striped">
@@ -46,5 +47,10 @@
 		    </tbody>
 		 </table>
 	</div>
-
+	
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-4">
+			{{ $users->render() }}
+		</div>
+	</div>
 @stop

@@ -3,7 +3,7 @@
 @section('content')
 
 	@if( $comments )
-		<h1>Comments</h1>
+		<h1 class="text-center">Comments</h1>
 	
 		<div class="table-responsive">
 			<table class="table table-striped">
@@ -14,7 +14,7 @@
 			        <th>Email</th>
 			        <th>Body</th>
 			        <th>Post</th>
-			        <th>Approve /<br>Unapprove</th>
+			        <th>Status</th>
 			        <th>Delete</th>
 			        <th>Time</th>
 			      </tr>
@@ -26,13 +26,13 @@
 				    	<td>{{ $comment->author }}</td>
 				    	<td>{{ $comment->email }}</td>
 				    	<td>{{ $comment->body }}</td>
-				    	<td><a href="{{ route('home.post', $comment->post->id) }}">View Post</a></td>
+				    	<td><a href="{{ route('home.post', $comment->post->slug) }}">View Post</a></td>
 				    	<td>	
 				    		@if( $comment->is_active == 1 )
 				    			{!! Form::open(['method'=>'PATCH', 'action'=>['PostCommentController@update', $comment->id]]) !!}
 				    				<input type="hidden" name="is_active" value="0">
 									<div class="form-group">
-										{!! Form::submit('Disable', ['class'=>'btn btn-danger'] ) !!}
+										{!! Form::submit('Disable', ['class'=>'btn btn-warning'] ) !!}
 									</div>
 								{!! Form::close() !!}
 							@else
@@ -60,8 +60,11 @@
 		</div>
 	@else
 		<h1 class="text-center">No Comments</h1>
-	
-	
-
 	@endif
+
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-4">
+			{{ $comments->render() }}
+		</div>
+	</div>
 @stop

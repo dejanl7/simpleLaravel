@@ -2549,7 +2549,19 @@ $(document).ready(function(){
     //});
 
 
+    function confirmation($button){
+        $($button).on('click', function(){
+            var confirmation = confirm('Do you want to execute this operation?'); 
+            if( confirmation == true ){
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
+    }
 
+    confirmation('input[type=submit]');
 
 
 

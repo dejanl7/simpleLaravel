@@ -2,7 +2,7 @@
 
 @section('content')
 	@if( count($comments) > 0 )
-		<h1>Comments</h1>
+		<h1 class="text-center">Comments</h1>
 	
 		<div class="table-responsive">
 			<table class="table table-striped">
@@ -14,7 +14,7 @@
 			        <th>Body</th>
 			        <th>Post</th>
 			        <th>Replies</th>
-			        <th>Approve / <br> Disable</th>
+			        <th>Status</th>
 			        <th>Delete</th>
 			      </tr>
 			    </thead>
@@ -32,7 +32,7 @@
 				    			{!! Form::open(['method'=>'PATCH', 'action'=>['PostCommentController@update', $comment->id]]) !!}
 				    				<input type="hidden" name="is_active" value="0">
 									<div class="form-group">
-										{!! Form::submit('Disable', ['class'=>'btn btn-danger'] ) !!}
+										{!! Form::submit('Disable', ['class'=>'btn btn-warning'] ) !!}
 									</div>
 								{!! Form::close() !!}
 							@else
@@ -62,5 +62,9 @@
 		<h1 class="text-center">No Comments</h1>
 	@endif
 
-
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-4">
+			{{ $comments->render() }}
+		</div>
+	</div>
 @stop

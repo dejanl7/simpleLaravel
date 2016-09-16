@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-
+	<h1 class="text-center">Uploaded Media</h1>
 	@if($photos)
 		<div class="table-responsive">
 			<table class="table table-striped">
@@ -33,5 +33,9 @@
 		</div>
 	@endif
 
-
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-4">
+			{{ $photos->render() }}
+		</div>
+	</div>
 @stop

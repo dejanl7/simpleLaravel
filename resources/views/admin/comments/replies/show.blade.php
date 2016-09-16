@@ -3,13 +3,13 @@
 @section('content')
 
 	@if( count($replies) > 0 )
-		<h1>replies</h1>
+		<h1 class="text-center">Replies on <b>"{{ $replies[0]->email }}"</b> comment </h1>
 		<div class="table-responsive">
 			<table class="table table-striped">
 			    <thead>
 			      <tr>
 			        <th>Id</th>
-			        <th>Author1</th>
+			        <th>Author</th>
 			        <th>Email</th>
 			        <th>Body</th>
 			        <th>Post</th>
@@ -31,7 +31,7 @@
 				    			{!! Form::open(['method'=>'PATCH', 'action'=>['CommentRepliesController@update', $reply->id]]) !!}
 				    				<input type="hidden" name="is_active" value="0">
 									<div class="form-group">
-										{!! Form::submit('Disable', ['class'=>'btn btn-danger'] ) !!}
+										{!! Form::submit('Disable', ['class'=>'btn btn-warning'] ) !!}
 									</div>
 								{!! Form::close() !!}
 							@else
@@ -60,6 +60,6 @@
 		
 	@else
 		<h1 class="text-center">No replies</h1>
-
 	@endif
+
 @stop

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,7 @@ class PostCommentController extends Controller
      */
     public function index()
     {
-        $comments = Comment::all();
+        $comments = Comment::paginate(2);
 
         return view( 'admin.comments.index', compact('comments') );
     }
@@ -65,11 +66,10 @@ class PostCommentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-       $post = Post::findOrFail($id);
-       $comments = $post->comments;
+    {        
 
-        return view('admin.comments.show', compact('comments') );
+        $comments = Comment::where('post_id', $id)->paginate(2);    
+            return view('admin.comments.show', compact('comments'));
     }
 
     /**

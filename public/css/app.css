@@ -1,3 +1,28 @@
+body#app-layout nav.navbar {
+  margin-top: -70px !important; }
+
+body#app-layout ul.nav li a {
+  color: #e67e22;
+  font-weight: bold;
+  font-size: 1.27em; }
+
+a.navbar-brand, li.dropdown a {
+  color: #e67e22 !important;
+  font-weight: bold; }
+
+nav.navbar {
+  background-color: #34495e;
+  font-weight: 400; }
+
+ul#side-menu li a {
+  color: #34495e; }
+
+.table-responsive, form {
+  margin-top: 70px; }
+
+td form {
+  margin-top: 0; }
+
 #admin-page {
   padding-top: 0px; }
 
@@ -8,5 +33,43 @@
   width: 100%;
   margin-top: 17px;
   display: none; }
+
+.blog-image {
+  margin-bottom: 70px; }
+
+.post-content {
+  display: block;
+  background-color: #ecf0f1;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px; }
+
+p.lead {
+  font-size: 1.17em;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  color: #000000; }
+
+.well-comment {
+  background-color: #ffffff !important; }
+
+.message-confirm {
+  background-color: #2ecc71;
+  margin: 0 auto;
+  vertical-align: middle;
+  padding: 7px;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px; }
+
+.message-confirm p {
+  color: #ffffff;
+  font-weight: bold; }
+
+footer p {
+  margin-top: 200px;
+  font-weight: bold;
+  font-size: 14px; }
 
 /*# sourceMappingURL=app.css.map */

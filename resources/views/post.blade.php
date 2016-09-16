@@ -1,41 +1,44 @@
 @extends('layouts.blog-post')
 
 @section('content')
-	<h1>{{ $post->title }}</h1>
-
+	<h1 class="text-center">{{ $post->title }}</h1>
+    <br>
         <!-- Author -->
-        <p class="lead">by <a href="#">{{ $post->user->name }}</a></p>
-        <hr>
-        <p><span class="glyphicon glyphicon-time"></span> Posted on {{ $post->created_at->diffForHumans() }}</p>
-        <hr>
-
+        <div class="row">
+            <p class="col-sm-6 col-xs-12 text-center"><span class="glyphicon glyphicon-time"></span><small> Posted by {{ $post->user->name }}</small></p>
+            <p class="col-sm-6 col-xs-12 text-center "><span class="glyphicon glyphicon-time"></span><small> Posted on {{ $post->created_at->diffForHumans() }}</small></p>
+        </div>        
         <!-- Preview Image -->
-        	<div class="col-sm-12">
-        		<img class="img-responsive" src="{{ $post->photo->file }}" alt="">
-        	</div>
-        <hr>
+    	<div class="col-sm-12 col-xs-12 blog-image"><br>
+    		<img class="col-sm-12 col-xs-12 " src="{{ $post->photo->file }}" alt="image">
+    	</div>
 
         <!-- Post Content -->
-        <p class="lead">{{ $post->body }}</p>
-        <hr>
+        <div class="post-content">
+            <p class="lead">{{ $post->body }}</p>
+        </div>
+        
+        
+        @if(Session::has('comment_message'))
+            <div class="col-sm-10 col-sm-offset-1 col-xs-12 message-confirm">
+                <p>{{ session('comment_message') }}</p> 
+            </div>  
+        @endif
 
-		@if(Session::has('comment_message'))
-        	{{ session('comment_message') }}	
-		@endif
 
         @if( Auth::check() )
             <!-- Blog Comments -->
-            <div class="well">
+            <div class="well well-comment">
                <h4>Leave a Comment:</h4>
 
                {!! Form::open(['method'=>'POST', 'action'=>'PostCommentController@store']) !!}
                		<input type="hidden" name="post_id" value="{{ $post->id }}">
     				<div class="form-group">
-    					{!! Form::label('body', 'Body') !!}
+    					{!! Form::label('body', 'Content') !!}
     					{!! Form::textarea('body', null, ['class'=>'form-control', 'rows'=>4]) !!}
     				</div>
     				<div class="form-group">
-    					{!! Form::submit('Submit Comment', ['class'=>'btn btn-primary']) !!}
+    					{!! Form::submit('Leave Comment', ['class'=>'btn btn-primary']) !!}
     				</div>
                {!! Form::close() !!}
             
@@ -47,7 +50,7 @@
             @foreach( $comments as $comment )
                 <div class="media">
                     <a class="pull-left" href="#">
-                        <img class="media-object" width="77" height="77" src="{{ Auth::user()->gravatar }}" alt="">
+                        <img class="media-object" width="57" height="57" src="{{ Auth::user()->gravatar }}" alt="">
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading">{{ $comment->email }} 
@@ -62,7 +65,7 @@
                             <div id="nested-comment" class="media">
                                 @if( count($comment->replies) > 0 )
                                     <a class="pull-left" href="#">
-                                        <img class="media-object" width="55" height="55" src="{{ Auth::user()->gravatar }}" alt="">
+                                        <img class="media-object" width="45" height="45" src="{{ Auth::user()->gravatar }}" alt="">
                                     </a>
                                     <div class="media-body">{{ $reply->email }}
                                         <h4 class="media-heading">
@@ -98,20 +101,7 @@
         @endif
     @stop
 
-	@section('widget')
-		<h4>Blog Categories</h4>
-        <div class="row">
-            <div class="col-sm-6">
-                <ul class="list-unstyled">
-                	@foreach( $categories as $category )
-                    	<li><a href="{{ route('admin.categories.index') }}">{{ $category->name }}</a></li>
-                    @endforeach 
-                </ul>
-            </div>
-        </div>
-        <!-- /.row -->
-	@stop
-
+	
 
 
 

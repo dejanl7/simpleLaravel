@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h1>All Posts</h1>
+	<h1 class="text-center">All Posts</h1>
 
 
 	<div class="table-responsive">

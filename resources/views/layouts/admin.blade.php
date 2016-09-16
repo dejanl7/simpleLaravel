@@ -72,11 +72,6 @@
 
         </ul>
 
-
-
-
-
-
         {{--<ul class="nav navbar-nav navbar-right">--}}
         {{--@if(auth()->guest())--}}
         {{--@if(!Request::is('auth/login'))--}}
@@ -104,7 +99,7 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
+                    <!--<li class="sidebar-search">
                         <div class="input-group custom-search-form">
                             <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
@@ -113,8 +108,8 @@
                                     </button>
                                 </span>
                         </div>
-                        <!-- /input-group -->
-                    </li>
+                        
+                    </li>-->
                     <li>
                         <a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -160,9 +155,9 @@
                                 <a href="{{ route('admin.categories.index') }}">All Categories</a>
                             </li>
 
-                            <li>
+                           <!--<li>
                                 <a href="{{ route('admin.categories.create') }}">Create Category</a>
-                            </li>
+                            </li>-->
 
                         </ul>
                         <!-- /.nav-second-level -->
@@ -184,7 +179,7 @@
                         <!-- /.nav-second-level -->
                     </li>        
             
-                    <li>
+                   <!-- <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -194,7 +189,7 @@
                                 <a href="morris.html">Morris.js Charts</a>
                             </li>
                         </ul>
-                        <!-- /.nav-second-level -->
+                       
                     </li>
                     <li>
                         <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
@@ -224,7 +219,7 @@
                                 <a href="grid.html">Grid</a>
                             </li>
                         </ul>
-                        <!-- /.nav-second-level -->
+                        
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -251,10 +246,10 @@
                                         <a href="#">Third Level Item</a>
                                     </li>
                                 </ul>
-                                <!-- /.nav-third-level -->
+         
                             </li>
                         </ul>
-                        <!-- /.nav-second-level -->
+                       
                     </li>
                     <li class="active">
                         <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
@@ -266,8 +261,7 @@
                                 <a href="login.html">Login Page</a>
                             </li>
                         </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+                    </li>-->
                 </ul>
 
 
